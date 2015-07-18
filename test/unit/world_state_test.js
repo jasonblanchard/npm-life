@@ -10,9 +10,9 @@ describe('WorldState', () => {
 
   describe('#init', () => {
     it('initializes the World to a certain dimension', () => {
-      WorldState.init(10, 10);
+      WorldState.init(20, 10);
       expect(WorldState.state().length).to.equal(10);
-      expect(WorldState.state()[1].length).to.equal(10);
+      expect(WorldState.state()[1].length).to.equal(20);
       expect(WorldState.state()[5][5]).to.equal(0);
     });
 

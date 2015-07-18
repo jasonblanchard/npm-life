@@ -1,5 +1,5 @@
-import LifeRunner from './life_runner';
-import defaultSeed from './default_seed';
+import LifeRunner from '../life_runner';
+import defaultSeed from '../default_seed';
 
 var world = LifeRunner.init({
   xDimension: 10,

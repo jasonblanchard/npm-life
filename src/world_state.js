@@ -6,10 +6,10 @@ export default {
   },
 
   init: function(x, y, seed) {
-    let xVals = Array(x).fill(0);
+    let yVals = Array(y).fill(0);
 
-    state = xVals.map(() => {
-      return Array(y).fill(0);
+    state = yVals.map(() => {
+      return Array(x).fill(0);
     });
 
     if (seed && seed.length > 0) {
