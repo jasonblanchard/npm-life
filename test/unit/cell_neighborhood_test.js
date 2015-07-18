@@ -32,7 +32,7 @@ describe('#neighborhood', () => {
 
 describe('for top row', () => {
   it('gets the right neighbors', () => {
-    let neighborhood = CellNeighborhood.init(world, 0, 1);
+    let neighborhood = CellNeighborhood.init(world, 1, 0);
     let neighbors = neighborhood.neighbors();
 
     expect(neighborhood.block.l).to.equal(1);
@@ -44,14 +44,57 @@ describe('for top row', () => {
 
 describe('for right column', () => {
   it('gets the right neighbors', () => {
-    let neighborhood = CellNeighborhood.init(world, 1, 9);
+    let neighborhood = CellNeighborhood.init(world, 9, 1);
     let neighbors = neighborhood.neighbors();
-
-    console.log(neighborhood.block);
 
     expect(neighborhood.block.l).to.equal(0);
     expect(neighborhood.block.r).to.equal(undefined);
 
     expect(neighbors.length).to.equal(5);
+  });
+});
+
+describe('for the bottom row', () => {
+  it('gets the right neighbors', () => {
+    let neighborhood = CellNeighborhood.init(world, 1, 9);
+    let neighbors = neighborhood.neighbors();
+
+    expect(neighborhood.block.l).to.equal(0);
+    expect(neighborhood.block.b).to.equal(undefined);
+
+    expect(neighbors.length).to.equal(5);
+  });
+});
+
+describe('for the left column', () => {
+  it('gets the right neighbors', () => {
+    let neighborhood = CellNeighborhood.init(world, 0, 1);
+    let neighbors = neighborhood.neighbors();
+
+    expect(neighborhood.block.r).to.equal(1);
+    expect(neighborhood.block.l).to.equal(undefined);
+
+    expect(neighbors.length).to.equal(5);
+  });
+});
+
+describe('for the corners', () => {
+  it('gets the right neighbors', () => {
+    let neighborhood = CellNeighborhood.init(world, 0, 0);
+    let neighbors = neighborhood.neighbors();
+    expect(neighbors.length).to.equal(3);
+
+    neighborhood = CellNeighborhood.init(world, 9, 0);
+    neighbors = neighborhood.neighbors();
+    expect(neighbors.length).to.equal(3);
+
+    neighborhood = CellNeighborhood.init(world, 9, 9);
+    neighbors = neighborhood.neighbors();
+    expect(neighbors.length).to.equal(3);
+
+    neighborhood = CellNeighborhood.init(world, 0, 9);
+    neighbors = neighborhood.neighbors();
+    expect(neighbors.length).to.equal(3);
+
   });
 });
