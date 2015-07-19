@@ -36,4 +36,29 @@ describe('WorldState', () => {
       expect(WorldState.state()[1][2]).to.equal(0);
     });
   });
+
+  describe('#update state', () => {
+    it('updates the internal state', () => {
+      let world = WorldState.init(10, 10, [
+        [0, 0],
+        [0, 1],
+        [1, 0],
+        [0, 2],
+        [0, 3],
+        [1, 1],
+        [3, 4],
+        [5, 0],
+        [0, 3],
+        [1, 3],
+        [2, 3]
+      ]);
+
+      let state = world.state();
+
+      expect(state[1][1]).to.equal(1);
+      state[1][1] = 0;
+      world.updateState(state);
+      expect(world.state()[1][1]).to.equal(0);
+    });
+  });
 });

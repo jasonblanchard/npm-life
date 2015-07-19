@@ -9,7 +9,7 @@ export default {
     let seed = options.seed || null;
 
     world = WorldState.init(xDimension, yDimension, seed);
-    return world;
+    return this;
   },
 
   world: function() {

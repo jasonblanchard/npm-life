@@ -18,6 +18,11 @@ export default {
       });
     }
 
+    return this;
+  },
+
+  updateState: function(newState) {
+    state = newState;
     return state;
   }
 };

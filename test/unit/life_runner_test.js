@@ -9,9 +9,9 @@ describe('LifeRunner', () => {
       seed: defaultSeed
     });
 
-    expect(LifeRunner.world().length).to.equal(10);
-    expect(LifeRunner.world()[1].length).to.equal(10);
-    expect(LifeRunner.world()[9][9]).to.equal(0);
-    expect(LifeRunner.world()[0][1]).to.equal(1);
+    expect(LifeRunner.world().state().length).to.equal(10);
+    expect(LifeRunner.world().state()[1].length).to.equal(10);
+    expect(LifeRunner.world().state()[9][9]).to.equal(0);
+    expect(LifeRunner.world().state()[0][1]).to.equal(1);
   });
 });

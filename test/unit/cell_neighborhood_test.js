@@ -2,7 +2,7 @@ import CellNeighborhood from '../../src/cell_neighborhood';
 import defaultSeed from '../../src/default_seed';
 import WorldState from '../../src/world_state';
 
-var world = WorldState.init(10, 10, defaultSeed);
+var world = WorldState.init(10, 10, defaultSeed).state();
 
 describe('#init', () => {
   describe('for a middle cell', () => {

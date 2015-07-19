@@ -31,3 +31,4 @@ tmp
 .lock-wscript
 
 .DS_Store
+*.swp
