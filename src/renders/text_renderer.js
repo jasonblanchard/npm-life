@@ -1,15 +1,45 @@
 import LifeRunner from '../life_runner';
 import defaultSeed from '../default_seed';
+import readline from 'readline';
+
+var rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+let additionalSeed = [
+  [9, 9],
+  [9, 8],
+  [8, 8],
+  [8, 7],
+  [1, 6],
+  [2, 6],
+  [8, 1],
+  [9, 1],
+  [9, 2],
+  [7, 1]
+];
+let seed = defaultSeed.concat(additionalSeed);
 
 var world = LifeRunner.init({
   xDimension: 10,
   yDimension: 10,
-  seed: defaultSeed
+  seed: seed
 });
 
-world.forEach((column) => {
-  column.forEach((row) => {
-    process.stdout.write(`[${row.toString()}]`);
+world.start(300, (state) => {
+  readline.cursorTo(rl, 0, 0)
+  readline.clearScreenDown(rl)
+  state.forEach((column) => {
+    column.forEach((cell) => {
+      if (cell === 0) {
+        process.stdout.write('[  ] ');
+      } else {
+        process.stdout.write(`[${('0' + cell).slice(-2)}] `);
+      }
+    });
+    console.log('');
+    console.log('');
   });
-  console.log('');
 });
+

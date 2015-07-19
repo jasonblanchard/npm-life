@@ -71,5 +71,8 @@
       "spy",
       "expect"
     ]
+  },
+  "dependencies": {
+    "single-line-log": "^1.0.0"
   }
 }

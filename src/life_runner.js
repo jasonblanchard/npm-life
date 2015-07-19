@@ -1,4 +1,5 @@
 import WorldState from './world_state';
+import lifeTick from './life_tick';
 var world = null;
 
 export default {
@@ -14,5 +15,16 @@ export default {
 
   world: function() {
     return world;
+  },
+
+  start: function(speed, cb) {
+    cb(this.world().state());
+
+    setInterval(() => {
+      let currentState = this.world().state();
+      let newState = lifeTick(currentState);
+      world.updateState(newState);
+      cb(newState);
+    }, speed);
   }
 };
