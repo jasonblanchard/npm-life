@@ -37,14 +37,14 @@ var world = LifeRunner.init({
 });
 
 world.start(100, (state) => {
-  readline.cursorTo(rl, 0, 0)
-  readline.clearScreenDown(rl)
+  readline.cursorTo(rl, 0, 0);
+  readline.clearScreenDown(rl);
   state.forEach((column) => {
     column.forEach((cell) => {
       if (cell === 0) {
         process.stdout.write('[  ] ');
       } else {
-        process.stdout.write(`[${('0' + cell).slice(-2)}] `.green);
+        process.stdout.write(`[${colors.green(('0' + cell).slice(-2))}] `);
       }
     });
     console.log('');
